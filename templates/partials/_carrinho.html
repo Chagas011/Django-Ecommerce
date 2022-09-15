@@ -1,0 +1,39 @@
+{% load static %}
+{% load filter %}
+<table class="table">
+    <tr>
+        <th class="d-none d-lg-block">Imagem</th>
+        <th>Produto</th>
+        <th>V.</th>
+        <th>QTD.</th>
+        <th>Total</th>
+    </tr>
+
+    {% for produto in carrinho.values %}
+    <tr>
+        <td class="d-none d-lg-block">
+            <a class="ml-3" href="{% url 'produto:detalhe' produto.slug %}">
+            <img class="cart-img" src="{%get_media_prefix%}{{produto.imagem}}">
+            </a>
+        </td>
+        <td>
+            <a class="ml-3" href="{% url 'produto:detalhe' produto.slug %}">
+            {{produto.produto_nome}}
+            </a>
+
+            <a class="ml-3" href="{% url 'produto:removercarrinho' %}?vid={{produto.variacao_id}}">
+                <i class="fas fa-times-circle text-danger" aria-hidden="true"></i>
+            </a>
+        </td>
+
+        <td>{{produto.variacao_nome}}</td>
+        <td>{{produto.quantidade}}X</td>
+        {% if produto.preco_quantitativo_promocional %}
+        <td>{{produto.preco_quantitativo_promocional|formata_preco}}</td>
+        {% else %}
+        <td>{{produto.preco_quantitativo|formata_preco}}</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+
+</table>

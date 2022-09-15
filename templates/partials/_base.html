@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>{% block titulo %}{% endblock titulo %}</title>
+
+    {% include 'partials/_head.html' %}
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+        {% include 'partials/_nav.html' %}
+    </nav>
+    {% include 'partials/_messages.html' %}
+    <main class="container mt-4 mb-4">
+        
+        {% block conteudo %}
+        {% endblock conteudo %}
+       
+    </main>
+    
+
+   {% include 'partials/_footer.html' %}
+</body>
+
+</html>
