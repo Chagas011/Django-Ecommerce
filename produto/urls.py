@@ -28,4 +28,8 @@ urlpatterns = [
          views.Finalizar.as_view(),
          name='finalizar'
          ),
+    path('busca/',
+         views.Busca.as_view(),
+         name='busca'
+         ),
 ]
