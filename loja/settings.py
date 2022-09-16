@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'pedidos',
     'perfil',
     'crispy_forms',
-    'debug_toolbar',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -55,7 +54,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'loja.urls'
@@ -142,11 +140,6 @@ MESSAGE_TAGS = {
     constants.WARNING: 'alert-warning',
 }
 
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    # ...
-]
 # Sessão em dias: 60s * 60m * 24h * 1d
 SESSION_COOKIE_AGE = 60 * 60 * 24 * 7
 
